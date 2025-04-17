@@ -1,15 +1,12 @@
 import axios from "axios";
-
-async function getAxios() {
-  try {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
+function getAxios() {
+  axios({
+    method: "get",
+    url: "https:jsonplaceholder.typicode.com/users",
+    responseType: "json",
+  }).then(function (response) {
     const result = response.data;
     console.log(result);
-  } catch (error) {
-    console.error("Error fetching:", error);
-  }
+  });
 }
-
 getAxios();
